@@ -1,0 +1,2 @@
+# Yes-Browser
+yes
