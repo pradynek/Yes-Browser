@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes Browser OS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="desktop" class="desktop">
+        <!-- Top Right Controls -->
+        <div class="top-right-controls">
+            <div class="help-btn" onclick="os.toggleHelp()" title="System Help">?</div>
+        </div>
+
+        <!-- Help Overlay -->
+        <div id="help-overlay" class="help-overlay hidden">
+            <div class="help-content">
+                <div class="help-header">
+                    <h2>Terminal Commands Guide</h2>
+                    <div class="close-help" onclick="os.toggleHelp()">×</div>
+                </div>
+                <div class="help-body">
+                    <div class="command-section">
+                        <h3>📁 File Management</h3>
+                        <ul>
+                            <li><code>ls</code> - List files in current directory</li>
+                            <li><code>cd [dir]</code> - Change directory</li>
+                            <li><code>mkdir [name]</code> - Create new directory</li>
+                            <li><code>touch [file]</code> - Create empty file</li>
+                            <li><code>rm [file]</code> - Remove file</li>
+                            <li><code>cp [src] [dst]</code> - Copy file</li>
+                            <li><code>mv [src] [dst]</code> - Move/Rename file</li>
+                            <li><code>cat [file]</code> - View file contents</li>
+                        </ul>
+                    </div>
+                    <div class="command-section">
+                        <h3>🛠️ System Utilities</h3>
+                        <ul>
+                            <li><code>pwd</code> - Print working directory</li>
+                            <li><code>whoami</code> - Show current user</li>
+                            <li><code>date</code> - Show current date & time</li>
+                            <li><code>history</code> - Show command history</li>
+                            <li><code>clear</code> - Clear terminal screen</li>
+                        </ul>
+                    </div>
+                    <div class="command-section">
+                        <h3>🤖 AI & Apps</h3>
+                        <ul>
+                            <li><code>open [app]</code> - Open an application (notepad, calc, etc.)</li>
+                            <li><code>echo "msg"</code> - Print message (or <code>> file.txt</code> to save)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="help-footer">
+                    <button class="got-it-btn" onclick="os.toggleHelp()">Got it!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Icons -->
+        <div class="icon-grid">
+            <div class="desktop-icon" onclick="os.openApp('notepad')">
+                <div class="icon-img">📝</div>
+                <div class="icon-label">Notepad</div>
+            </div>
+            <div class="desktop-icon" onclick="os.openApp('calculator')">
+                <div class="icon-img">🧮</div>
+                <div class="icon-label">Calculator</div>
+            </div>
+            <div class="desktop-icon" onclick="os.openApp('browser')">
+                <div class="icon-img">🌐</div>
+                <div class="icon-label">Browser</div>
+            </div>
+            <div class="desktop-icon" onclick="os.openApp('terminal')">
+                <div class="icon-img">📟</div>
+                <div class="icon-label">Terminal</div>
+            </div>
+            <div class="desktop-icon" onclick="os.openApp('fileexplorer')">
+                <div class="icon-img">📂</div>
+                <div class="icon-label">Explorer</div>
+            </div>
+            <div class="desktop-icon" onclick="os.openApp('aibot')">
+                <div class="icon-img">🤖</div>
+                <div class="icon-label">YesAI</div>
+            </div>
+            <div class="desktop-icon" onclick="os.openApp('settings')">
+                <div class="icon-img">⚙️</div>
+                <div class="icon-label">Settings</div>
+            </div>
+        </div>
+
+        <!-- Window Container (Apps spawn here) -->
+        <div id="window-area"></div>
+
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <div class="start-btn">🛡️ Start</div>
+            <div id="taskbar-apps" class="taskbar-apps"></div>
+            <div class="clock" id="clock">12:00 PM</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
